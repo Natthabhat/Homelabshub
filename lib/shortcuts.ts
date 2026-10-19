@@ -1,6 +1,6 @@
 export const COLORS = ["mint", "blue", "purple", "amber", "rose", "cyan"] as const;
 export const ICONS = ["globe", "server", "database", "media", "code", "cloud", "shield", "home"] as const;
-export type Shortcut = { id: string; name: string; url: string; category: string; color: typeof COLORS[number]; icon: typeof ICONS[number]; favorite: boolean; createdAt: number };
+export type Shortcut = { id: string; name: string; url: string; category: string; color: typeof COLORS[number]; icon: typeof ICONS[number]; favorite: boolean; iconData?: string; createdAt: number };
 export const STORAGE_KEY = "homelabshub.shortcuts.v1";
 // randomUUID requires HTTPS; getRandomValues also works on HTTP LAN addresses.
 export function newId(): string {
@@ -21,6 +21,6 @@ export function parseShortcuts(input: unknown): Shortcut[] {
     const s = row as Record<string, unknown>;
     if (typeof s.name !== "string" || !s.name.trim() || s.name.length > 80 || typeof s.url !== "string" || s.url.length > 2048) throw new Error("Each shortcut needs a valid name and URL.");
     const id = typeof s.id === "string" && s.id && !ids.has(s.id) ? s.id : newId(); ids.add(id);
-    return { id, name: s.name.trim(), url: normalizeUrl(s.url), category: typeof s.category === "string" ? s.category.trim().slice(0, 40) || "General" : "General", color: COLORS.includes(s.color as Shortcut["color"]) ? s.color as Shortcut["color"] : "mint", icon: ICONS.includes(s.icon as Shortcut["icon"]) ? s.icon as Shortcut["icon"] : "globe", favorite: s.favorite === true, createdAt: typeof s.createdAt === "number" && Number.isFinite(s.createdAt) ? s.createdAt : Date.now() };
+    return { id, iconData: typeof s.iconData === "string" && s.iconData.length <= 100000 && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(s.iconData) ? s.iconData : undefined, name: s.name.trim(), url: normalizeUrl(s.url), category: typeof s.category === "string" ? s.category.trim().slice(0, 40) || "General" : "General", color: COLORS.includes(s.color as Shortcut["color"]) ? s.color as Shortcut["color"] : "mint", icon: ICONS.includes(s.icon as Shortcut["icon"]) ? s.icon as Shortcut["icon"] : "globe", favorite: s.favorite === true, createdAt: typeof s.createdAt === "number" && Number.isFinite(s.createdAt) ? s.createdAt : Date.now() };
   });
 }
