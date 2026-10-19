@@ -24,3 +24,12 @@ export function parseShortcuts(input: unknown): Shortcut[] {
     return { id, iconData: typeof s.iconData === "string" && s.iconData.length <= 100000 && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(s.iconData) ? s.iconData : undefined, name: s.name.trim(), url: normalizeUrl(s.url), category: typeof s.category === "string" ? s.category.trim().slice(0, 40) || "General" : "General", color: COLORS.includes(s.color as Shortcut["color"]) ? s.color as Shortcut["color"] : "mint", icon: ICONS.includes(s.icon as Shortcut["icon"]) ? s.icon as Shortcut["icon"] : "globe", favorite: s.favorite === true, createdAt: typeof s.createdAt === "number" && Number.isFinite(s.createdAt) ? s.createdAt : Date.now() };
   });
 }
+
+export function moveShortcut(items: Shortcut[], sourceId: string, targetId: string, after = false): Shortcut[] {
+  if(sourceId===targetId)return items;
+  const source=items.find(s=>s.id===sourceId),target=items.find(s=>s.id===targetId);
+  if(!source||!target)return items;
+  const next=items.filter(s=>s.id!==sourceId),index=next.findIndex(s=>s.id===targetId);
+  next.splice(index+(after?1:0),0,{...source,category:target.category});
+  return next;
+}

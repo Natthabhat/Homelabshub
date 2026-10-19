@@ -25,3 +25,7 @@
 .list-view .shortcut-link {min-height:90px;padding-right:70px;}.list-view .shortcut-info h3 {font-size:20px;}.list-view .shortcut-info p {font-size:14px;}.list-view .shortcut-menu {top:50%;transform:translateY(-50%);}.list-view .shortcut-link .launch-arrow {display:none;}
 @media(hover:none){.shortcut-menu summary{opacity:1;}}
 @media(max-width:680px){.shortcut-info h3,.list-view .shortcut-info h3{font-size:18px;}.shortcut-info p,.list-view .shortcut-info p{font-size:13px;}.shortcut-link{min-height:190px;}.shortcut-menu{right:7px;top:7px;}}
+
+.modal select {width:100%;border:1px solid #3a444c;border-radius:6px;background:#13181c;padding:11px 12px;color:var(--text);font:inherit;font-size:12px;}
+.drag-handle {position:absolute;left:8px;top:8px;z-index:7;display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:#202b25;color:#b8c8be;cursor:grab;opacity:0;touch-action:none;}.drag-handle:active{cursor:grabbing;}.shortcut-card:hover .drag-handle,.shortcut-card:focus-within .drag-handle{opacity:1;}.shortcut-card.is-dragging{opacity:.45;}.shortcut-card.is-drop-target{outline:2px solid var(--mint);outline-offset:3px;}.shortcut-menu-items button:disabled{opacity:.35;cursor:default;}
+@media(hover:none){.drag-handle{opacity:1;}}
