@@ -32,3 +32,17 @@ npm run build
 ```
 
 Built with Next.js App Router, React, TypeScript, Lucide icons, and plain CSS. Source files: `app/page.tsx`, `app/globals.css`, and `lib/shortcuts.ts`.
+
+## Ubuntu deployment (port 3500)
+
+With Docker Engine and Docker Compose installed, copy this project's source to a dedicated directory on the Ubuntu server, then run:
+
+```sh
+docker compose up -d --build
+docker compose ps
+curl --fail http://127.0.0.1:3500/
+```
+
+Open `http://YOUR-SERVER-IP:3500`. The container runs as a non-root user and restarts automatically unless stopped. Inspect logs with `docker compose logs --tail=100 homelabshub` and stop this deployment with `docker compose down` from its directory.
+
+The Docker image builds on Ubuntu, excluding Windows dependencies and build artifacts. Browser-local shortcuts do not transfer automatically to the server URL; export them from the old URL and import at the new URL.
