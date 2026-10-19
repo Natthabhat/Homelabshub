@@ -29,3 +29,6 @@
 .modal select {width:100%;border:1px solid #3a444c;border-radius:6px;background:#13181c;padding:11px 12px;color:var(--text);font:inherit;font-size:12px;}
 .drag-handle {position:absolute;left:8px;top:8px;z-index:7;display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:5px;background:#202b25;color:#b8c8be;cursor:grab;opacity:0;touch-action:none;}.drag-handle:active{cursor:grabbing;}.shortcut-card:hover .drag-handle,.shortcut-card:focus-within .drag-handle{opacity:1;}.shortcut-card.is-dragging{opacity:.45;}.shortcut-card.is-drop-target{outline:2px solid var(--mint);outline-offset:3px;}.shortcut-menu-items button:disabled{opacity:.35;cursor:default;}
 @media(hover:none){.drag-handle{opacity:1;}}
+
+.workspace-actions {justify-content:flex-end;margin-bottom:22px;}
+@media(max-width:900px){.workspace-actions{align-items:flex-end;}.workspace-actions>.primary-button{align-self:flex-end;}}
