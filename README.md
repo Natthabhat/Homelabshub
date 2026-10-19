@@ -22,6 +22,7 @@ Open http://localhost:3000. For production, run `npm run build` followed by `npm
 - Upload a custom PNG, JPG, or WebP icon (up to 5 MB) in the shortcut editor. Icons are resized to 128 pixels and stored locally with the shortcut. Choose a built-in icon or remove the custom image to switch back.
 - Choose a category from the shortcut editor dropdown. Create additional categories above the shortcut groups.
 - Drag a card by its grip to arrange it or move it into another category by dropping on a card there. Use **Move up/Move down** in the card menu as an alternative. Manual order and grid/detail preference are saved automatically in this browser and restored on refresh.
+- Hover over a shortcut for two seconds to see an embedded preview. Leaving the card or starting a drag closes it. Sites that block framing and HTTP services inside the HTTPS hub can be opened with **Open page**. Previews load directly in your browser, with no third-party screenshot service.
 - **Ctrl+K** (or **Cmd+K**) focuses search.
 - Create categories with **Add category**, then assign shortcuts to them in the shortcut editor. Categories are displayed as grouped sections and as filters across the top. Empty categories are saved too. Up to 500 shortcuts are supported.
 
