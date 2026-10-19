@@ -20,9 +20,9 @@ Open http://localhost:3000. For production, run `npm run build` followed by `npm
 - URLs can be HTTP or HTTPS, including local IPs, ports, and hostnames. Addresses without a scheme default to HTTP, which works well for local services. Use an explicit `https://` for HTTPS services.
 - Shortcuts open in a new tab. Edit, favorite, or remove them using the buttons on each card.
 - **Ctrl+K** (or **Cmd+K**) focuses search.
-- **Export** downloads a JSON backup. **Import** validates and merges a backup after confirmation, preserving current shortcuts and skipping repeated name/URL pairs. Up to 500 shortcuts are supported.
+- Create categories with **Add category**, then assign shortcuts to them in the shortcut editor. Categories are displayed as grouped sections and as filters across the top. Empty categories are saved too. Up to 500 shortcuts are supported.
 
-Data is stored in this browser's localStorage for this site's origin. It is not shared across browsers, devices, ports, or hostnames. Export a backup before clearing browser data or moving the site. No backend, account, or network service health monitoring is included. External fonts are optional; the dashboard falls back to system fonts offline. Shortcut URLs are not sent to a favicon service.
+Data is stored in this browser's localStorage for this site's origin. It is not shared across browsers, devices, ports, or hostnames. Keep browser data to preserve your shortcuts and categories. No backend, account, or network service health monitoring is included. External fonts are optional; the dashboard falls back to system fonts offline. Shortcut URLs are not sent to a favicon service.
 
 ## Checks
 
@@ -45,4 +45,4 @@ curl --fail http://127.0.0.1:3500/
 
 Open `http://YOUR-SERVER-IP:3500`. The container runs as a non-root user and restarts automatically unless stopped. Inspect logs with `docker compose logs --tail=100 homelabshub` and stop this deployment with `docker compose down` from its directory.
 
-The Docker image builds on Ubuntu, excluding Windows dependencies and build artifacts. Browser-local shortcuts do not transfer automatically to the server URL; export them from the old URL and import at the new URL.
+The Docker image builds on Ubuntu, excluding Windows dependencies and build artifacts. Browser-local shortcuts and categories do not transfer automatically between different URLs or devices.
