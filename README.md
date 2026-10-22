@@ -85,36 +85,6 @@ The interface uses Lucide icons and custom CSS. Dependency versions are recorded
 
 There is no built-in hub authentication, service health monitoring, remote service administration, or credential management. Opening a shortcut does not grant access to its destination; each linked service retains its own access controls. Restrict access to a hosted hub through your chosen deployment layer when appropriate.
 
-## Local development
-
-Requires Node.js 20.9 or newer and npm.
-
-```sh
-npm ci
-npm run dev
-```
-
-Open [localhost:3000](http://localhost:3000/). The development and start scripts bind to all network interfaces, so consider the surrounding network when running them.
-
-```sh
-npm run typecheck
-npm run build
-npm start
-```
-
-Type checking validates TypeScript usage, and the production build checks that Next.js can compile the application. The application does not require a business database, service credentials, or real shortcut records to build.
-
-## Docker deployment
-
-With Docker Engine and Docker Compose installed:
-
-```sh
-docker compose up -d --build
-docker compose ps
-docker compose logs --tail=100 homelabshub
-```
-
-Review [compose.yaml](compose.yaml) for the configured port mapping before starting. Adapt networking, HTTPS routing, and access restrictions to your environment. The image builds the application and runs it as a non-root user with a health check; the example Compose file includes restart and capability restrictions. Deployment configuration should be reviewed for compatibility with the target host.
 
 Changing or replacing the application container does not migrate browser-local data between site origins. Maintain private operational instructions separately from this README.
 
