@@ -38,3 +38,8 @@
 @media(max-width:680px){.category-manager>.primary-button{width:100%;justify-content:center;}.category-manager form {margin-left:0;}}
 
 @media(min-width:1201px){.shortcut-grid:not(.list-view){grid-template-columns:repeat(5,minmax(0,1fr));}}
+
+.category-drop-target{outline:1px dashed var(--mint);outline-offset:3px}
+.category-grip{min-width:44px;min-height:44px;border:0;border-radius:7px;background:transparent;color:#9da4aa;cursor:grab;touch-action:none;font-size:22px}
+.category-grip:hover,.category-grip:focus-visible{background:#202529;color:var(--mint)}
+.category-grip:active{cursor:grabbing}
